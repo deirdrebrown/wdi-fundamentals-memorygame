@@ -23,33 +23,43 @@ var cards = [
 
 ];
 
-cardsInPlay = [ ]
-if (cardsInPlay.length === 2){
-}
+var cardsInPlay = [];
 
-//check for a match	
+//check for a match	& number of cards played
 var checkForMatch = function (){
+//check if two  cards played
+if (cardsInPlay.length === 2){	
+//check for match	
 if (cardsInPlay[0] === cardsInPlay[1]) {
 	alert("You found a match!");		
 	} else {
 	alert("Sorry, try again.");
 			}
 
+	}
 }
-
 // user flips card
-	function flipCard (cardId){
-		console.log("User flipped" + " " + cards[cardId].rank);
+var flipCard = function (){
+		var cardId = this.getAttribute('data-id');
+		this.setAttribute('src', cards[cardId].cardImage);
 		cardsInPlay.push(cards[cardId].rank);
-		console.log(cards[cardId].cardImage);
-		console.log(cards[cardId].suit);
-
-//check if two cards have been played
-
-		checkForMatch;
+		checkForMatch();
+	}	
 	
+	
+
+//Create Game Board
+var createBoard = function(){
+	for(var i = 0; i < cards.length; i++){
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		cardElement.setAttribute('data-id', i);
+		cardElement.addEventListener('click', flipCard)
+		document.getElementById('game-board').appendChild(cardElement);
 	}
 
-//calls the fliped card !!!!!
-	flipCard(0);
-	flipCard(2);
+}
+
+
+
+createBoard();

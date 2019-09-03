@@ -59,8 +59,8 @@ p {
 
 footer {
 	text-transform: uppercase;
-	padding: 20px;
-	background: #0d2c40;
+	padding: 0 20px;
+	background-color: #0d2c40;
 	color: white;
 	font-size: 14px;
 	letter-spacing: .08em;
@@ -68,10 +68,10 @@ footer {
 	font-family: "Raleway", sans-serif;
 }
 .copyright {
-	float: left;	
+	float:left;	
 }
 .message {
-	float: right;
+	float:right;
 }
 .clearfix:after {
 	visibility: hidden;
